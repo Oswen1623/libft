@@ -6,39 +6,35 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 01:36:18 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/25 18:02:23 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:36:00 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_sp(char c)
-{
-	if (c == ' ' || c == '\n' || c == '\t')
-		return (1);
-	else
-		return (0);
-}
-
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	char	*trimmed;
+	size_t	len;
+	char	*out;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = 0;
-	if (s == NULL)
-		return (NULL);
-	while (s[start] && is_sp(s[start]))
+	end = ft_strlen(s1);
+	while (start < end && ft_strchr(set, s1[start]))
 		start++;
-	end = ft_strlen(s);
-	while (end > start && is_sp(s[end - 1]))
+	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
-	trimmed = (char *)malloc((end - start + 1) * sizeof(char));
-	if (!trimmed)
+	len = end - start;
+	out = (char *)malloc(len + 1);
+	if (!out)
 		return (NULL);
-	ft_strlcpy(trimmed, s + start, end - start + 1);
-	return (trimmed);
+	while (len--)
+		out[len] = s1[start + len];
+	out[end - start] = '\0';
+	return (out);
 }
 
 /*
@@ -53,9 +49,9 @@ int	main(void)
 	char		*out;
 
 	i = 0;
-	while (i < sizeof(in) / sizeof(in[0]))
+	while (in[i])
 	{
-		out = ft_strtrim(in[i]);
+		out = ft_strtrim(in[i], " \n\t");
 		printf("Input : [%s]\n", in[i] ? in[i] : "(NULL)");
 		if (out)
 		{
@@ -68,4 +64,5 @@ int	main(void)
 		i++;
 	}
 	return (0);
-}*/
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 20:44:59 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/29 16:26:09 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/11 12:51:45 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,29 @@
 
 int	ft_atoi(const char *str)
 {
-	int		accumulator;
+	long	result;
 	int		sign;
-	int		curr_val;
 	size_t	i;
 
-	accumulator = 0;
-	sign = 1;
-	curr_val = 0;
 	i = 0;
-	if (str[0] == '-')
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	sign = 1;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sign = -1;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	if (str[0] == '+')
-		i++;
-	while (str[i] != '\0')
+	result = 0;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		curr_val = (int)(str[i] - '0');
-		if (curr_val < 0 || curr_val > 9)
-			return (accumulator);
-		accumulator = accumulator * 10 + curr_val;
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	return (sign * accumulator);
+	return ((int)(result * sign));
 }
+
 /*
 #include <stdio.h>
 

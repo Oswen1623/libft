@@ -6,7 +6,7 @@
 #    By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/29 16:49:33 by lucinguy          #+#    #+#              #
-#    Updated: 2025/10/29 17:08:26 by lucinguy         ###   ########.fr        #
+#    Updated: 2025/11/09 18:42:55 by lucinguy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,15 +60,15 @@ SRCS := \
 # ------------------------------- Bonus ------------------------------ #
 
 BSRCS := \
-	ft_lstnew.c \
-	ft_lstadd_front.c \
-	ft_lstsize.c \
-	ft_lstlast.c \
-	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c
+	ft_lstnew_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c \
+	ft_lstdelone_bonus.c \
+	ft_lstclear_bonus.c \
+	ft_lstiter_bonus.c \
+	ft_lstmap_bonus.c
 
 OBJS  := $(SRCS:.c=.o)
 BOBJS := $(BSRCS:.c=.o)
@@ -80,8 +80,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BOBJS)
-	$(AR) $(NAME) $(OBJS) $(BOBJS)
+bonus: $(NAME) $(BOBJS)
+	$(AR) $(NAME) $(BOBJS)
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) $(INCS) -c $< -o $@

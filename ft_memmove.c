@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 19:52:55 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/25 20:11:49 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:55:38 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,27 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	size_t	i;
 
 	if (!dst && !src)
 		return (NULL);
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (d > s)
-		while (n--)
-			d[n] = s[n];
-	else
-		while (n--)
-			*d++ = *s++;
+	if (dst < src)
+	{
+		i = 0;
+		while (i < n)
+		{
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+			i++;
+		}
+	}
+	else if (dst > src)
+	{
+		while (0 < n)
+		{
+			n--;
+			((unsigned char *)dst)[n] = ((unsigned char *)src)[n];
+		}
+	}
 	return (dst);
 }
 /*
@@ -34,9 +42,10 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 
 int	main(void)
 {
-	char	str[] = "12345";
+	char	str[20] = "HelloWorld";
 
-	memmove(str + 2, str, 3);
-	printf("%s\n", str);
+	ft_memmove(str + 2, str, 5);
+	printf("Result: %s\n", str);
+	return (0);
 }
 */

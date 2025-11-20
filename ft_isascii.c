@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 19:30:53 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/25 19:52:35 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/10 15:49:43 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,17 @@ int	ft_isascii(int c)
 	else
 		return (0);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	int	c;
+
+	c = 128;
+	if (!ft_isascii(c))
+		printf("Ce n'est pas un ASCII.\n");
+	else
+		printf("C'est un ASCII.\n");
+}
+*/

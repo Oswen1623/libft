@@ -6,44 +6,42 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 16:30:05 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/29 16:26:54 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:36:51 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	char	*src_char;
-	char	*dest_char;
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
+	if (!dst && !src)
+		return (NULL);
+	if (dst == src || n == 0)
+		return (dst);
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
 	i = 0;
-	src_char = (char *)src;
-	dest_char = (char *)dest;
 	while (i < n)
 	{
-		dest_char[i] = src_char[i];
+		d[i] = s[i];
 		i++;
 	}
+	return (dst);
 }
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-	char	src[] = "Hello World";
-	char	dest[100];
-	int		arr[] = {10, 20, 30, 40, 50, 60, 70, 80, 90};
-	int		n;
+	char	src[] = "World";
+	char	dst[10];
 
-	ft_memcpy(dest, src, strlen(src) + 1);
-	printf("The copied string is %s \n", dest);
-	n = sizeof(arr) / sizeof(arr[0]);
-	int dest_arr[n], i;
-	ft_memcpy(dest_arr, arr, sizeof(arr));
-	printf("The copied array is ");
-	for (i = 0; i < n; i++)
-		printf("%d ", dest_arr[i]);
+	ft_memcpy(dst, src, 6);
+	printf("Copied: %s\n", dst);
+	return (0);
 }
 */

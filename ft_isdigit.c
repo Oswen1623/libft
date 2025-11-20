@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 19:11:50 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/25 19:15:50 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/10 15:10:15 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ int	ft_isdigit(int c)
 int	main(void)
 {
 	int	c;
-	int	res;
 
-	c = '7';
-	res = ft_isdigit(c);
-	printf("%d\n", res);
+	c = 'a';
+	if (!ft_isdigit(c))
+		printf("Ce n'est pas un digit.\n");
+	else
+		printf("C'est un digit.\n");
 }
 */

@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 20:34:58 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/14 22:10:17 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:53:39 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	*s++ = '\0';
 }
 /*
-#include <ctype.h>
 #include <stdio.h>
 
-void	to_upper_even(unsigned int i, char *c)
+void	to_upper(unsigned int i, char *c)
 {
-	if (i % 2 == 0)
-		*c = toupper(*c);
+	(void)i;
+	if (*c >= 'a' && *c <= 'z')
+		*c -= 32;
 }
 
 int	main(void)
@@ -42,4 +42,5 @@ int	main(void)
 	printf("Before : %s", string);
 	ft_striteri(string, to_upper_even);
 	printf("After : %s", string);
-}*/
+}
+*/

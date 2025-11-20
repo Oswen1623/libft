@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 04:47:42 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/29 16:28:29 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/13 10:49:56 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 	dst_len = i;
 	j = 0;
 	if (i == dsize)
-		return (dsize + strlen(src));
+		return (dsize + ft_strlen(src));
 	while (src[j] != '\0' && (i + j + 1) < dsize)
 	{
 		dst[i + j] = src[j];
@@ -32,5 +32,19 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 	}
 	if (i + j < dsize)
 		dst[i + j] = '\0';
-	return (dst_len + strlen(src));
+	return (dst_len + ft_strlen(src));
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	dst[20] = "Hello";
+	char	src[] = " World!";
+	size_t	res;
+
+	res = ft_strlcat(dst, src, sizeof(dst));
+	printf("Result: %s | Total length: %zu\n", dst, res);
+	return (0);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 05:10:08 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/29 16:28:01 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:57:30 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,37 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*last;
+	size_t	i;
+	char	*find;
 
-	while (*s)
+	find = NULL;
+	i = 0;
+	while (s[i])
 	{
-		if (*s == (char)c)
-			last = s;
-		s++;
+		if ((char)c == s[i])
+			find = (char *)&s[i];
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return ((char *)last);
+	if ((char)c == '\0')
+		return ((char *)&s[i]);
+	return (find);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*haystack;
+	int		needle;
+	char	*res;
+
+	haystack = "Bonjour je m'appelle Oswen.\n";
+	needle = 'e';
+	res = ft_strrchr(haystack, needle);
+	if (!res)
+		printf("Pas trouvee.\n");
+	else
+		printf("Derniere occurrence trouvee : %s\n", res);
+}
+*/

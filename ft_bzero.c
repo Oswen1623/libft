@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 19:44:28 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/10/25 19:52:34 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/13 10:48:20 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,15 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	str[10] = "abcdef";
+
+	ft_bzero(str + 2, 3);
+	printf("After bzero: %s\n", str);
+	return (0);
+}
+*/
