@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 20:13:27 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/11/26 14:41:43 by lucinguy         ###   ########.fr       */
+/*   Updated: 2025/11/26 14:47:47 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(ptr, nmemb * size);
 	return (ptr);
 }
+
 /*
 #include <stdio.h>
 
