@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 12:27:02 by lucinguy          #+#    #+#             */
-/*   Updated: 2026/03/03 13:52:08 by lucinguy         ###   ########.fr       */
+/*   Updated: 2026/03/03 14:10:51 by lucinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	ft_putpointer(unsigned long n, int fd)
 		ft_putstr_fd_pf("(nil)", fd);
 		return (5);
 	}
-	base = "0123456789abcdef";
 	ft_putstr_fd_pf("0x", fd);
 	count += ft_putnbr_base_x(n, 0, fd);
 	return (count + 2);

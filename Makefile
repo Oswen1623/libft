@@ -6,7 +6,7 @@
 #    By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/29 16:49:33 by lucinguy          #+#    #+#              #
-#    Updated: 2025/11/09 18:42:55 by lucinguy         ###   ########.fr        #
+#    Updated: 2026/03/03 14:09:38 by lucinguy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ CFLAGS      := -Wall -Wextra -Werror
 AR          := ar rcs
 RM          := rm -f
 
-INCS        := -I .
+INCS        := -I . -I ./ft_printf -I ./gnl
 
 # --------------------------- Mandatory ---------------------------- #
 
+# ------ Libft sources ------ #
 SRCS := \
 	ft_atoi.c \
 	ft_bzero.c \
@@ -57,6 +58,18 @@ SRCS := \
 	ft_strtrim.c \
 	ft_substr.c
 
+# ------ ft_printf sources ------ #
+PRINTF_SRCS := \
+	ft_printf/ft_printf.c \
+	ft_printf/ft_printf_utils.c \
+	ft_printf/conv.c \
+	ft_printf/checktype.c
+
+# ------ gnl sources ------ #
+GNL_SRCS := \
+	gnl/get_next_line.c \
+	gnl/get_next_line_utils.c
+
 # ------------------------------- Bonus ------------------------------ #
 
 BSRCS := \
@@ -70,7 +83,7 @@ BSRCS := \
 	ft_lstiter_bonus.c \
 	ft_lstmap_bonus.c
 
-OBJS  := $(SRCS:.c=.o)
+OBJS  := $(SRCS:.c=.o) $(PRINTF_SRCS:.c=.o) $(GNL_SRCS:.c=.o)
 BOBJS := $(BSRCS:.c=.o)
 
 .PHONY: all clean fclean re bonus
