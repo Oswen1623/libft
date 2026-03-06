@@ -56,7 +56,8 @@ SRCS := \
 	ft_strjoin.c \
 	ft_strmapi.c \
 	ft_strtrim.c \
-	ft_substr.c
+	ft_substr.c \
+	ft_strstr.c
 
 # ------ ft_printf sources ------ #
 PRINTF_SRCS := \
