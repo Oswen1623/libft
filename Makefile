@@ -6,7 +6,7 @@
 #    By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/29 16:49:33 by lucinguy          #+#    #+#              #
-#    Updated: 2026/03/03 14:09:38 by lucinguy         ###   ########.fr        #
+#    Updated: 2026/04/29 18:55:02 by lucinguy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,10 @@ CC          := cc
 CFLAGS      := -Wall -Wextra -Werror
 AR          := ar rcs
 RM          := rm -f
+RMDIR       := rm -rf
+OBJS_DIR    := objs
 
-INCS        := -I . -I ./ft_printf -I ./gnl
+INCS        := -I . -I ./ft_printf -I ./ft_fprintf -I ./gnl
 
 # --------------------------- Mandatory ---------------------------- #
 
@@ -66,6 +68,13 @@ PRINTF_SRCS := \
 	ft_printf/conv.c \
 	ft_printf/checktype.c
 
+# ------ ft_fprintf sources ------ #
+FPRINTF_SRCS := \
+	ft_fprintf/ft_fprintf.c \
+	ft_fprintf/ft_fprintf_utils.c \
+	ft_fprintf/conv.c \
+	ft_fprintf/checktype.c
+
 # ------ gnl sources ------ #
 GNL_SRCS := \
 	gnl/get_next_line.c \
@@ -84,8 +93,8 @@ BSRCS := \
 	ft_lstiter_bonus.c \
 	ft_lstmap_bonus.c
 
-OBJS  := $(SRCS:.c=.o) $(PRINTF_SRCS:.c=.o) $(GNL_SRCS:.c=.o)
-BOBJS := $(BSRCS:.c=.o)
+OBJS  := $(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o) $(PRINTF_SRCS:.c=.o) $(FPRINTF_SRCS:.c=.o) $(GNL_SRCS:.c=.o))
+BOBJS := $(addprefix $(OBJS_DIR)/, $(BSRCS:.c=.o))
 
 .PHONY: all clean fclean re bonus
 
@@ -97,11 +106,12 @@ $(NAME): $(OBJS)
 bonus: $(NAME) $(BOBJS)
 	$(AR) $(NAME) $(BOBJS)
 
-%.o: %.c libft.h
+$(OBJS_DIR)/%.o: %.c libft.h
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS) $(BOBJS)
+	$(RMDIR) $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
