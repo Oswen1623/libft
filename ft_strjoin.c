@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 23:46:49 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/11/11 12:40:54 by lucinguy         ###   ########.fr       */
+/*   Updated: 2026/04/29 14:02:08 by ccauderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	char	*res;
 
-	if (!s1 || !s2)
-		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	res = (char *)malloc(len1 + len2 + 1);

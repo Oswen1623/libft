@@ -6,7 +6,7 @@
 /*   By: lucinguy <lucinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 00:10:31 by lucinguy          #+#    #+#             */
-/*   Updated: 2025/11/13 12:10:58 by lucinguy         ###   ########.fr       */
+/*   Updated: 2026/04/29 11:57:55 by ccauderl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	int	len;
 
+	if (!s)
+		return (0);
 	len = 0;
 	while (s[len] != '\0')
 		len++;
